@@ -1,4 +1,5 @@
 Overview
+
 The Diploma Thesis Application is a web application designed to streamline the process of managing diploma thesis projects. It facilitates interaction between students and professors, allowing students to browse, apply for, and manage thesis projects while enabling professors to assign projects, supervise, and assess outcomes efficiently.To sum up this app streamlines the thesis project lifecycle for academic institutions.
 
 
