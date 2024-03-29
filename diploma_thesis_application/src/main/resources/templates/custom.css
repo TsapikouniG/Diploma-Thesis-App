@@ -1,0 +1,42 @@
+/* custom.css */
+
+/* Update the container background color */
+.container {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* Update the main heading font and center it */
+h2 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Customize the login and register buttons */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* Customize the logout button */
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+/* Customize the logged-in user details */
+h4 {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Customize the dashboard buttons */
+.btn-sm {
+  margin-right: 10px;
+}
+
+/* Customize the HR line */
+hr {
+  border-top: 1px solid #ccc;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Subjects List</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+		  crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h3>Subjects List</h3>
+		<hr>
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Title</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="subject : ${subjects}">
+					<td th:text="${subject.title}"></td>
+					<td><a th:href="@{/student/subject-details/{id}(id=${subject.getId()})}" class="btn btn-primary">Details</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/student/dashboard}" class="btn btn-secondary">Back to Dashboard</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Subject Details</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+		  crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h3>Subject Details</h3>
+		<hr>
+		<div class="row">
+
+			<div class="col">
+				<strong>Title:</strong> <span th:text="${subject.title}"></span>
+			</div>
+			<div class="col">
+				<strong>Objectives:</strong> <span th:text="${subject.objectives}"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<strong>Professor:</strong> <span th:text="${subject.professor.fullName}"></span>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<a class="btn btn-secondary" href="/student/subjects">Back to Subject List</a>
+			</div>
+			<div class="col">
+				<form method="POST" action="/student/apply">
+					<input type="hidden" name="studentId" th:value="${student.id}" />
+					<input type="hidden" name="subjectId" th:value="${subject.id}" />
+					<button class="btn btn-primary" type="submit">Apply</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

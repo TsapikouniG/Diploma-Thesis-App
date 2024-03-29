@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicants List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h3>Applicants List</h3>
+        <hr>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Student Name</th>
+                    <th>Year of Studies</th>
+                    <th>Current Average Grade</th>
+                    <th>Number Of Remaining Courses</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${applications}">
+                    <td th:text="${student.fullName}"></td>
+                    <td th:text="${student.yearOfStudies}"></td>
+                    <td th:text="${student.currentAverageGrade}"></td>
+                    <td th:text="${student.numberOfRemainingCourses}"></td>
+                    <td>
+                        <form th:action="@{/professor/assign}" method="post">
+                            <input type="hidden" th:name="studentId" th:value="${student.id}" />
+                            <input type="hidden" name="subjectId" th:value="${subjectId}" />
+                            <button type="submit" class="btn btn-primary">Assign Thesis</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/professor/dashboard}" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</body>
+</html>

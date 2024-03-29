@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Profile</title>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 2rem;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+
+        h2,
+        h4 {
+            text-align: center;
+        }
+        
+        button[type="submit"] {
+            margin-top: 1rem;
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        
+        a {
+            color: #007bff;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+
+<body>
+	
+	<div class="container">
+  <h3>Professor Profile</h3>
+  <hr>
+  <form action="#" th:action="@{/professor/profile/save}" th:object="${professor}" method="post">
+  <div class="form-group">
+      <label for="id"></label>
+      <input type="text" class="form-control" th:field="*{id}" id="id" hidden>
+    </div>
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input type="text" class="form-control" th:field="*{fullName}" id="fullName" placeholder="Enter your full name">
+    </div>
+    <div class="form-group">
+      <label for="fullName">Specialty</label>
+      <input type="text" class="form-control" th:field="*{specialty}" id="specialty" placeholder="Enter your Specialty">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</body>
+</html>

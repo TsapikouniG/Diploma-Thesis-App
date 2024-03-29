@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Register</title>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        form {
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            margin-top: 0;
+            font-family: Arial, sans-serif;
+            color: #333333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 3px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 3px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745; /* Green color */
+            border: none;
+            color: #ffffff;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #218838; /* Darker shade of green on hover */
+        }
+
+        p.error-message {
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+
+        <form action="#" th:action="@{/save}" th:object="${user}" method="post">
+            <h3 style="margin-top: 0;">Registration</h3>
+            <input type="text" th:field="*{username}" placeholder="User Name" /><br /><br />
+            <input type="password" th:field="*{password}" placeholder="Password" /><br /><br />
+            <select th:field="*{role}" required>
+                <option value="">SELECT</option>
+                <option value="STUDENT">STUDENT</option>
+                <option value="PROFESSOR">PROFESSOR</option>
+            </select><br /><br />
+            <label>Agree to terms and conditions:
+    			<input type="checkbox" id="terms" name="terms" required>
+			</label><br /><br />
+
+            <span th:utext="${successMessage}"></span>
+
+            <button type="submit" class="btn btn-info col-12">Register</button>
+
+            <div th:if="${param.error}">
+                <p>Registration Error.</p>
+            </div><br />
+
+            <span th:utext="${successMessage}"></span>
+        </form>
+    </div>
+</body>
+
+</html>
